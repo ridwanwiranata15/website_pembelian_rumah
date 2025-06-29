@@ -33,7 +33,7 @@
             left: 0;
             width: var(--sidebar-width);
             height: 100vh;
-            background-color: var(--dark-color);
+            background-color: var(--primary-color);
             color: white;
             transition: all var(--transition-speed) ease;
             z-index: 100;
@@ -337,6 +337,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            overflow: scroll;
         }
 
         .modal-overlay.active {
@@ -355,6 +356,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
+            margin: 10px;
         }
 
         .modal-overlay.active .modal {
@@ -511,4 +513,75 @@
         }
         .sidebar-footer{
             margin-top: 210px;
+        }
+
+        /* for file input & image preview */
+
+        /* Custom styles for the file input */
+        .file-input {
+            position: absolute;
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .file-input-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 2rem;
+            border: 2px dashed #d1d5db;
+            border-radius: 1rem;
+            background-color: #f9fafb;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .file-input-label:hover {
+            border-color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        
+        .file-input-label.drag-over {
+            border-color: #3b82f6;
+            background-color: #dbeafe;
+        }
+        
+        .preview-container {
+            display: none;
+            position: relative;
+            margin-top: 1.5rem;
+        }
+        
+        .preview-image {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .remove-btn {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            width: 2rem;
+            height: 2rem;
+            background-color: #ef4444;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+        
+        .file-info {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: #6b7280;
         }
