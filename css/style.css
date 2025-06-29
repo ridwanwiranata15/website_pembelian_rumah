@@ -25,6 +25,9 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+        .mx-1{
+            margin: 0px 10px;
+        }
 
         /* Sidebar Styles */
         .sidebar {
@@ -277,6 +280,14 @@
 
         .btn-primary:hover {
             background-color: var(--secondary-color);
+        }
+        .btn-danger{
+            background-color: var(--danger-color);
+            color: white;
+        }
+        .btn-warning{
+            background-color: var(--warning-color);
+            color: black;
         }
 
         table {
@@ -584,4 +595,7 @@
             margin-top: 0.5rem;
             font-size: 0.875rem;
             color: #6b7280;
+        }
+        .hover-row{
+            cursor: pointer;
         }

@@ -91,10 +91,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr class="hover-row" onclick="DetailBank(1)" data-id="1">
                         <td>#ORD-001</td>
                         <td>John Smith</td>
-                        <td>12 May 2023</td>
+                        <td><img src="" alt=""></td>
                     </tr>
                 </tbody>
             </table>
@@ -147,6 +147,55 @@
             <div class="modal-footer">
                 <button class="btn btn-secondary" id="cancelModal">Cancel</button>
                 <button class="btn btn-primary">Create Order</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modalBankDetail">
+        <div class="modal">
+            <div class="modal-decoration top-right"></div>
+            <div class="modal-decoration bottom-left"></div>
+            <div class="modal-header">
+                <h3>Create New Order</h3>
+                <button class="modal-close" id="closeModalDetail">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="customerName">Name</label>
+                    <input type="text" id="customerName" class="form-control" placeholder="Enter customer name">
+                </div>
+                <div class="max-w-md w-full bg-white rounded-xl shadow-md overflow-hidden p-6">
+                    <label for="" class="mb-6">Image</label>
+
+                    <div class="file-upload-container">
+                        <input type="file" id="fileInput" class="file-input" accept="image/*">
+                        <label for="fileInput" class="file-input-label" id="dropArea">
+                            <div class="text-blue-500 text-4xl">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-lg font-medium text-gray-700">Drag & drop your image here</p>
+                                <p class="text-sm text-gray-500 mt-1">or click to browse files</p>
+                            </div>
+                            <span class="text-xs text-gray-400">Supports: JPG, PNG, GIF (Max 5MB)</span>
+                        </label>
+
+                        <div class="preview-container" id="previewContainer">
+                            <div class="remove-btn" id="removeBtn">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <img src="#" alt="Preview" class="preview-image" id="previewImage">
+                            <div class="file-info" id="fileInfo"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn " id="cancelModal">Cancel</button>
+                <button class="btn btn-warning mx-1">Update Bank</button>
+                <button class="btn btn-danger">Delete Bank</button>
             </div>
         </div>
     </div>

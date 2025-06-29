@@ -176,3 +176,16 @@
                 return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
             }
         });
+
+        function DetailBank(id){
+            document.getElementById("modalBankDetail").classList.add('active');
+            const databank = document.querySelectorAll("tr[data-id='"+id+"'] td");
+            const Bank = {
+                "name" : databank[1].textContent,
+                "image" : databank[2].textContent
+            }
+            console.log(Bank)
+        }
+        document.getElementById("closeModalDetail").addEventListener("click", function(){
+            document.getElementById("modalBankDetail").classList.remove('active');
+        })
