@@ -7,6 +7,7 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/upload-img.css">
 </head>
 
 <body>
@@ -113,36 +114,23 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label for="customerName">Name</label>
-                    <input type="text" id="customerName" class="form-control" placeholder="Enter customer name">
-                </div>
-                <div class="max-w-md w-full bg-white rounded-xl shadow-md overflow-hidden p-6">
-                    <label for="" class="mb-6">Image</label>
-
-                    <div class="file-upload-container">
-                        <input type="file" id="fileInput" class="file-input" accept="image/*">
-                        <label for="fileInput" class="file-input-label" id="dropArea">
-                            <div class="text-blue-500 text-4xl">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                            </div>
-                            <div class="text-center">
-                                <p class="text-lg font-medium text-gray-700">Drag & drop your image here</p>
-                                <p class="text-sm text-gray-500 mt-1">or click to browse files</p>
-                            </div>
-                            <span class="text-xs text-gray-400">Supports: JPG, PNG, GIF (Max 5MB)</span>
+                <div class="form-container">
+                    <form id="uploadForm">
+                        <label for="name">Nama:</label>
+                        <input type="text" id="name" name="name" required>
+                         <label for="name">Gambar:</label>
+                        <label for="images" class="custom-file-upload">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 8px;">
+                                <path
+                                    d="M.5 9.9a.5.5 0 0 0 .5.6H4v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3h3a.5.5 0 0 0 .5-.6L8.354 1.646a.5.5 0 0 0-.708 0L.5 9.9z" />
+                            </svg>
+                            Upload Gambar
                         </label>
-
-                        <div class="preview-container" id="previewContainer">
-                            <div class="remove-btn" id="removeBtn">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <img src="#" alt="Preview" class="preview-image" id="previewImage">
-                            <div class="file-info" id="fileInfo"></div>
-                        </div>
-                    </div>
+                        <input type="file" id="images" name="images[]" accept="image/*" multiple>
+                    </form>
+                    <div class="preview-container" id="previewContainer"></div>
                 </div>
-
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" id="cancelModal">Cancel</button>
@@ -151,56 +139,44 @@
         </div>
     </div>
     <div class="modal-overlay" id="modalBankDetail">
-        <div class="modal">
+          <div class="modal">
             <div class="modal-decoration top-right"></div>
             <div class="modal-decoration bottom-left"></div>
             <div class="modal-header">
-                <h3>Create New Order</h3>
+                <h3>Detail Bank</h3>
                 <button class="modal-close" id="closeModalDetail">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label for="customerName">Name</label>
-                    <input type="text" id="customerName" class="form-control" placeholder="Enter customer name">
-                </div>
-                <div class="max-w-md w-full bg-white rounded-xl shadow-md overflow-hidden p-6">
-                    <label for="" class="mb-6">Image</label>
-
-                    <div class="file-upload-container">
-                        <input type="file" id="fileInput" class="file-input" accept="image/*">
-                        <label for="fileInput" class="file-input-label" id="dropArea">
-                            <div class="text-blue-500 text-4xl">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                            </div>
-                            <div class="text-center">
-                                <p class="text-lg font-medium text-gray-700">Drag & drop your image here</p>
-                                <p class="text-sm text-gray-500 mt-1">or click to browse files</p>
-                            </div>
-                            <span class="text-xs text-gray-400">Supports: JPG, PNG, GIF (Max 5MB)</span>
+                <div class="form-container">
+                    <form id="DetailForm">
+                        <label for="name">Nama:</label>
+                        <input type="text" id="name" name="name" required>
+                         <label for="name">Gambar:</label>
+                        <label for="imageDetail" class="custom-file-upload">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 8px;">
+                                <path
+                                    d="M.5 9.9a.5.5 0 0 0 .5.6H4v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3h3a.5.5 0 0 0 .5-.6L8.354 1.646a.5.5 0 0 0-.708 0L.5 9.9z" />
+                            </svg>
+                            Upload Gambar
                         </label>
-
-                        <div class="preview-container" id="previewContainer">
-                            <div class="remove-btn" id="removeBtn">
-                                <i class="fas fa-times"></i>
-                            </div>
-                            <img src="#" alt="Preview" class="preview-image" id="previewImage">
-                            <div class="file-info" id="fileInfo"></div>
-                        </div>
-                    </div>
+                        <input type="file" id="imageDetail" name="imageDetail[]" accept="image/*" multiple>
+                    </form>
+                    <div class="preview-container" id="previewContainerDetail"></div>
                 </div>
-
             </div>
             <div class="modal-footer">
-                <button class="btn " id="cancelModal">Cancel</button>
-                <button class="btn btn-warning mx-1">Update Bank</button>
-                <button class="btn btn-danger">Delete Bank</button>
+                <button class="btn btn-secondary" id="cancelModal">Cancel</button>
+                <button class="btn btn-primary">Create Order</button>
             </div>
         </div>
     </div>
 
     <script src="../js/banks.js"></script>
+    <script src="../js/upload-img.js"></script>
+    <script src="../js/upload-image-detail.js"></script>
 </body>
 
 </html>

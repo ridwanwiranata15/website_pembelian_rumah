@@ -214,3 +214,7 @@ function DetailBank(id) {
 document.getElementById("closeModalDetail").addEventListener("click", function () {
     document.getElementById("modalBankDetail").classList.remove('active');
 })
+
+document.getElementById("closeModalDetail").addEventListener("click", function(e){
+    e.preventDefault()
+})
