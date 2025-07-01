@@ -27,11 +27,11 @@
             </a>
             <a href="#" class="menu-item">
                 <i class="fa-solid fa-layer-group"></i>
-                <span>cities</span>
+                <span>facilities</span>
             </a>
             <a href="#" class="menu-item">
                 <i class="fa-solid fa-layer-group"></i>
-                <span>Cities</span>
+                <span>facilities</span>
             </a>
             <a href="#" class="menu-item">
                 <i class="fa-solid fa-house-medical"></i>
@@ -65,7 +65,7 @@
                 <button class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
-                <h1>cities Overview</h1>
+                <h1>Facilities Overview</h1>
             </div>
             <div class="user-info">
                 <div class="notification-icon">
@@ -76,11 +76,11 @@
                 <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
             </div>
         </div>
-        <div class="recent-Citys">
+        <div class="recent-facilitys">
             <div class="section-header">
-                <h2 class="section-title">Recent cities</h2>
-                <button class="btn btn-primary" id="openModalCity">
-                    <i class="fas fa-plus"></i> Add New City
+                <h2 class="section-title">Recent Facilities</h2>
+                <button class="btn btn-primary" id="openModalFacility">
+                    <i class="fas fa-plus"></i> Add New facility
                 </button>
             </div>
             <table>
@@ -92,7 +92,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="hover-row" onclick="DetailCity(1)" data-id-City="1" class="city-data">
+                    <tr class="hover-row" onclick="Detailfacility(1)" data-id-facility="1" class="facility-data">
                         <td>#ORD-001</td>
                         <td>John Smith</td>
                         <td><img src="../image/image01.jpg" alt="" width="100px" height="100px"></td>
@@ -103,13 +103,13 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal-overlay" id="modalCity">
+    <div class="modal-overlay" id="modalfacility">
         <div class="modal">
             <div class="modal-decoration top-right"></div>
             <div class="modal-decoration bottom-left"></div>
             <div class="modal-header">
-                <h3>Create New City</h3>
-                <button class="modal-close" id="closeModalCity">
+                <h3>Create New facility</h3>
+                <button class="modal-close" id="closeModalfacility">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -134,17 +134,17 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" id="cancelModal">Cancel</button>
-                <button class="btn btn-primary">Create City</button>
+                <button class="btn btn-primary">Create facility</button>
             </div>
         </div>
     </div>
-    <div class="modal-overlay" id="modalcitiesDetail">
+    <div class="modal-overlay" id="modalfacilitiesDetail">
           <div class="modal">
             <div class="modal-decoration top-right"></div>
             <div class="modal-decoration bottom-left"></div>
             <div class="modal-header">
-                <h3>Detail cities</h3>
-                <button class="modal-close" id="closeModalDetailCity">
+                <h3>Detail facilities</h3>
+                <button class="modal-close" id="closeModalDetailfacility">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
@@ -154,7 +154,7 @@
                         <label for="name">Nama:</label>
                         <input type="text" id="name" name="name" required>
                          <label for="name">Gambar:</label>
-                         <img src="" alt="" width="150px" height="150px" id="img-preview-detail-city">
+                         <img src="" alt="" width="150px" height="150px" id="img-preview-detail-facility">
 
                         <p>
                             <label for="imageDetail" class="custom-file-upload">
@@ -173,14 +173,14 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" id="cancelModal">Cancel</button>
-                <button class="btn btn-primary">Create City</button>
+                <button class="btn btn-primary">Create facility</button>
             </div>
         </div>
     </div>
 
     <script src="../js/upload-img.js"></script>
     <script src="../js/upload-image-detail.js"></script>
-    <script src="../js/cities.js"></script>
+    <script src="../js/facility.js"></script>
 </body>
 
 </html>
