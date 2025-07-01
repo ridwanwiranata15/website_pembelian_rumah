@@ -599,3 +599,9 @@
         .hover-row{
             cursor: pointer;
         }
+        .flex-form{
+            display: flex;
+        }
+        .mr-1{
+            margin-right: 10px;
+        }
