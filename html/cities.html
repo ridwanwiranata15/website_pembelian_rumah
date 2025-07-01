@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/upload-img.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-fire"></i> AdminPro</h3>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#" class="menu-item active">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Banks</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>cities</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Cities</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house-medical"></i>
+                <span>Facilities</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>House</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Interest</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Mortgage Request</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>cities Overview</h1>
+            </div>
+            <div class="user-info">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <span class="user-name">John Doe</span>
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+            </div>
+        </div>
+        <div class="recent-Citys">
+            <div class="section-header">
+                <h2 class="section-title">Recent cities</h2>
+                <button class="btn btn-primary" id="openModalCity">
+                    <i class="fas fa-plus"></i> Add New City
+                </button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover-row" onclick="DetailCity(1)" data-id-City="1" class="cat-data">
+                        <td>#ORD-001</td>
+                        <td>John Smith</td>
+                        <td><img src="../image/image01.jpg" alt="" width="100px" height="100px"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalCity">
+        <div class="modal">
+            <div class="modal-decoration top-right"></div>
+            <div class="modal-decoration bottom-left"></div>
+            <div class="modal-header">
+                <h3>Create New City</h3>
+                <button class="modal-close" id="closeModalCity">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <form id="uploadForm">
+                        <label for="name">Nama:</label>
+                        <input type="text" id="name" name="name" required>
+                         <label for="name">Gambar:</label>
+                        <label for="images" class="custom-file-upload">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 8px;">
+                                <path
+                                    d="M.5 9.9a.5.5 0 0 0 .5.6H4v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3h3a.5.5 0 0 0 .5-.6L8.354 1.646a.5.5 0 0 0-.708 0L.5 9.9z" />
+                            </svg>
+                            Upload Gambar
+                        </label>
+                        <input type="file" id="images" name="images[]" accept="image/*" multiple>
+                    </form>
+                    <div class="preview-container" id="previewContainer"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelModal">Cancel</button>
+                <button class="btn btn-primary">Create City</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modalcitiesDetail">
+          <div class="modal">
+            <div class="modal-decoration top-right"></div>
+            <div class="modal-decoration bottom-left"></div>
+            <div class="modal-header">
+                <h3>Detail cities</h3>
+                <button class="modal-close" id="closeModalDetail">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <form id="DetailForm">
+                        <label for="name">Nama:</label>
+                        <input type="text" id="name" name="name" required>
+                         <label for="name">Gambar:</label>
+                         <img src="" alt="" width="150px" height="150px" id="img-preview-detail">
+
+                        <p>
+                            <label for="imageDetail" class="custom-file-upload">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 8px;">
+                                <path
+                                    d="M.5 9.9a.5.5 0 0 0 .5.6H4v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3h3a.5.5 0 0 0 .5-.6L8.354 1.646a.5.5 0 0 0-.708 0L.5 9.9z" />
+                            </svg>
+                            Upload Gambar
+                        </label>
+                        <input type="file" id="imageDetail" name="imageDetail[]" accept="image/*" multiple>
+                        </p>
+                    </form>
+                    <div class="preview-container" id="previewContainerDetail"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelModal">Cancel</button>
+                <button class="btn btn-primary">Create City</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/upload-img.js"></script>
+    <script src="../js/upload-image-detail.js"></script>
+    <script src="../js/cities.js"></script>
+</body>
+
+</html>
