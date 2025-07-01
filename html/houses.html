@@ -116,21 +116,46 @@
             <div class="modal-body">
                 <div class="form-container">
                     <form id="uploadForm">
-                        <p class="mb-1">
-                            <label for="name">Nama:</label>
-                            <input type="text" id="name" name="name" required>
-                            <span>Harap isi kolom Nama</span>
-                        </p>
-                        <p class="mb-1">
-                            <label for="name">Harga:</label>
-                            <input type="text" id="name" name="name" required>
-                            <span>Harap isi kolom Harga</span>
-                        </p>
-                        <p class="mb-1">
-                            <label for="name">Sertifikat:</label>
-                            <input type="text" id="name" name="name" required>
-                        </p>
-                         <!-- <label for="name">Gambar:</label>
+                        <div id="form01">
+                            <p class="mb-1">
+                                <label for="name">Nama:</label>
+                                <input type="text" id="name" name="name" required>
+                                <span>Harap isi kolom Nama</span>
+                            </p>
+                            <p class="mb-1">
+                                <label for="name">Harga:</label>
+                                <input type="text" id="name" name="name" required>
+                                <span>Harap isi kolom Harga</span>
+                            </p>
+                            <p class="mb-1">
+                                <label for="name">Sertifikat:</label>
+                                <input type="text" id="name" name="name" required>
+                            </p>
+                        </div>
+                        <div id="form02">
+                            <label for="imagesGallery" class="custom-file-upload">Upload Photo</label>
+                            <input type="file" id="imagesGallery" name="images[]" accept="image/*" multiple>
+                            <div class="preview-container" id="previewGallery"></div>
+
+                            <!-- Untuk Thumbnail -->
+                            <label for="imagesThumbnail" class="custom-file-upload">Upload Thumbnail</label>
+                            <input type="file" id="imagesThumbnail" name="thumbnail[]" accept="image/*">
+                            <div class="preview-container" id="previewThumbnail"></div>
+
+                            <!-- Untuk Detail (seperti di modal detail) -->
+                            <input type="file" id="imageDetail" name="imageDetail[]" accept="image/*" multiple>
+                            <div class="preview-container" id="previewContainerDetail"></div>
+                            <p class="">
+                                <label for="name">Fasilitas</label>
+                                <select name="" id="">
+                                    <option value="">Masjid</option>
+                                    <option value="">Restaurant</option>
+                                    <option value="">Hospital</option>
+                                </select>
+                            </p>
+
+                        </div>
+                        <!-- <label for="name">Gambar:</label>
                             <label for="images" class="custom-file-upload">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 8px;">
@@ -146,12 +171,13 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" id="cancelModal">Cancel</button>
-                <button class="btn btn-primary">Create House</button>
+                <button class="btn btn-secondary" id="prevModal" onclick="PrevForm()">Prev</button>
+                <button class="btn btn-primary" onclick="NextForm1()">Next</button>
             </div>
         </div>
     </div>
     <div class="modal-overlay" id="modalHousesDetail">
-          <div class="modal">
+        <div class="modal">
             <div class="modal-decoration top-right"></div>
             <div class="modal-decoration bottom-left"></div>
             <div class="modal-header">
@@ -165,19 +191,19 @@
                     <form id="DetailForm">
                         <label for="name">Nama:</label>
                         <input type="text" id="name" name="name" required>
-                         <label for="name">Gambar:</label>
-                         <img src="" alt="" width="150px" height="150px" id="img-preview-detail">
+                        <label for="name">Gambar:</label>
+                        <img src="" alt="" width="150px" height="150px" id="img-preview-detail">
 
                         <p>
                             <label for="imageDetail" class="custom-file-upload">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 8px;">
-                                <path
-                                    d="M.5 9.9a.5.5 0 0 0 .5.6H4v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3h3a.5.5 0 0 0 .5-.6L8.354 1.646a.5.5 0 0 0-.708 0L.5 9.9z" />
-                            </svg>
-                            Upload Gambar
-                        </label>
-                        <input type="file" id="imageDetail" name="imageDetail[]" accept="image/*" multiple>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 8px;">
+                                    <path
+                                        d="M.5 9.9a.5.5 0 0 0 .5.6H4v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3h3a.5.5 0 0 0 .5-.6L8.354 1.646a.5.5 0 0 0-.708 0L.5 9.9z" />
+                                </svg>
+                                Upload Gambar
+                            </label>
+                            <input type="file" id="imageDetail" name="imageDetail[]" accept="image/*" multiple>
                         </p>
                     </form>
                     <div class="preview-container" id="previewContainerDetail"></div>
@@ -192,6 +218,8 @@
 
     <script src="../js/upload-img.js"></script>
     <script src="../js/upload-image-detail.js"></script>
+    <script src="../js/upload-image-house.js"></script>
     <script src="../js/house.js"></script>
 </body>
+
 </html>

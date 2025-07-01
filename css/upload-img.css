@@ -53,6 +53,7 @@
       cursor: pointer;
       transition: background-color 0.3s;
       margin-bottom: 20px;
+      width: 370px;
     }
 
     .custom-file-upload:hover {
@@ -115,4 +116,7 @@
 
     .mb-1{
       margin-bottom: 10px;
+    }
+    #form02{
+      display: none;
     }

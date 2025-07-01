@@ -605,3 +605,6 @@
         .mr-1{
             margin-right: 10px;
         }
+        #prevModal{
+            display: none;
+        }
