@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/upload-img.css">
+    <link rel="stylesheet" href="../css/houses.css">
 </head>
 
 <body>
@@ -88,14 +89,46 @@
                     <tr>
                         <th>No</th>
                         <th>Name</th>
-                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Certificate</th>
+                        <th>Thumbnail</th>
+                        <th>Photos</th>
+                        <th class="hidden">Facilities</th>
+                        <th class="hidden">About</th>
+                        <th class="hidden">City</th>
+                        <th class="hidden">Category</th>
+                        <th class="hidden">Electric</th>
+                        <th class="hidden">Land Area</th>
+                        <th class="hidden">Building area</th>
+                        <th class="hidden">Bathroom</th>
+                        <th class="hidden">Bedroom</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="hover-row" onclick="DetailHouse(1)" data-id-House="1" class="cat-data">
                         <td>#ORD-001</td>
                         <td>John Smith</td>
+                        <td>540000000</td>
+                        <td>SHM</td>
                         <td><img src="../image/image01.jpg" alt="" width="100px" height="100px"></td>
+                        <td>
+                            <img src="../image/image01.jpg" alt="" width="100px" height="100px">
+                            <img src="../image/image01.jpg" alt="" width="100px" height="100px">
+                            <img src="../image/image01.jpg" alt="" width="100px" height="100px">
+                        </td>
+                        <td class="hidden">
+                            <p>Lapangan</p>
+                            <p>Masjid</p>
+                            <p>Hospital</p>
+                        </td>
+                        <td class="hidden">About</td>
+                        <td class="hidden">City</td>
+                        <td class="hidden">catgory</td>
+                        <td class="hidden">Electric</td>
+                        <td class="hidden">Land area</td>
+                        <td class="hidden">Building area</td>
+                        <td class="hidden">Bathroom</td>
+                        <td class="hidden">Bedroom</td>
                     </tr>
                 </tbody>
             </table>
@@ -114,107 +147,276 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-container">
-                    <form id="uploadForm">
-                        <div id="form01">
-                            <p class="mb-1">
-                                <label for="name">Nama:</label>
-                                <input type="text" id="name" name="name" required>
-                                <span>Harap isi kolom Nama</span>
-                            </p>
-                            <p class="mb-1">
-                                <label for="name">Harga:</label>
-                                <input type="text" id="name" name="name" required>
-                                <span>Harap isi kolom Harga</span>
-                            </p>
-                            <p class="mb-1">
-                                <label for="name">Sertifikat:</label>
-                                <input type="text" id="name" name="name" required>
-                            </p>
-                        </div>
-                        <div id="form02">
-                            <label for="imagesGallery" class="custom-file-upload">Upload Photo</label>
-                            <input type="file" id="imagesGallery" name="images[]" accept="image/*" multiple>
-                            <div class="preview-container" id="previewGallery"></div>
-
-                            <!-- Untuk Thumbnail -->
-                            <label for="imagesThumbnail" class="custom-file-upload">Upload Thumbnail</label>
-                            <input type="file" id="imagesThumbnail" name="thumbnail[]" accept="image/*">
-                            <div class="preview-container" id="previewThumbnail"></div>
-
-                            <!-- Untuk Detail (seperti di modal detail) -->
-                            <input type="file" id="imageDetail" name="imageDetail[]" accept="image/*" multiple>
-                            <div class="preview-container" id="previewContainerDetail"></div>
-                            <p class="">
-                                <label for="name">Fasilitas</label>
-                                <select name="" id="">
-                                    <option value="">Masjid</option>
-                                    <option value="">Restaurant</option>
-                                    <option value="">Hospital</option>
+                <div class="progress-bar">
+                        <div class="progress-step active" data-step="1">1</div>
+                        <div class="progress-step" data-step="2">2</div>
+                        <div class="progress-step" data-step="3">3</div>
+                        <div class="progress-step" data-step="4">4</div>
+                        <div class="progress-step" data-step="5">5</div>
+                        <div class="progress-step" data-step="6">6</div>
+                        <div class="progress-step" data-step="7">7</div>
+                </div>
+                <!-- step 01 -->
+                <div class="form-step active" id="step-1">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter property name">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" id="price" placeholder="Enter price">
+                    </div>
+                </div>
+                <!-- step 02 -->
+                 <div class="form-step" id="step-2">
+                    <div class="form-group">
+                        <label for="certificate">Certificate</label>
+                        <select id="certificate">
+                            <option value="">Select certificate type</option>
+                            <option value="shm">SHM (Sertifikat Hak Milik)</option>
+                            <option value="hgb">HGB (Hak Guna Bangunan)</option>
+                            <option value="shgb">SHGB (Sertifikat Hak Guna Bangunan)</option>
+                            <option value="girik">Girik</option>
+                        </select>
+                    </div>
+                   <div class="form-group">
+                        <label>Thumbnail</label>
+                        <label for="thumbnail" class="file-upload">
+                            <p>Click to upload thumbnail</p>
+                            <div class="thumbnail-preview" id="thumbnailPreview">
+                                <p>No thumbnail selected</p>
+                            </div>
+                        </label>
+                        <input type="file" id="thumbnail" accept="image/*">
+                    </div>
+                </div>
+                <div class="form-step" id="step-3">
+                    <div class="form-group">
+                        <label>Photos</label>
+                        <label for="photos" class="file-upload">
+                            <p>Click to upload photos (multiple allowed)</p>
+                        </label>
+                        <input type="file" id="photos" accept="image/*" multiple>
+                        <div class="preview-container" id="photosPreview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Facilities</label>
+                        <div id="facilitiesContainer">
+                            <div class="facility-item">
+                                <select class="facility-select">
+                                    <option value="">Select facility</option>
+                                    <option value="pool">Swimming Pool</option>
+                                    <option value="gym">Gym</option>
+                                    <option value="parking">Parking</option>
+                                    <option value="security">24/7 Security</option>
                                 </select>
-                            </p>
-
+                                <button class="btn-outline add-facility-btn">+</button>
+                            </div>
                         </div>
-                        <!-- <label for="name">Gambar:</label>
-                            <label for="images" class="custom-file-upload">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 8px;">
-                                    <path
-                                        d="M.5 9.9a.5.5 0 0 0 .5.6H4v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3h3a.5.5 0 0 0 .5-.6L8.354 1.646a.5.5 0 0 0-.708 0L.5 9.9z" />
-                                </svg>
-                                Upload Gambar
-                            </label>
-                        <input type="file" id="images" name="images[]" accept="image/*" multiple> -->
-                    </form>
-                    <div class="preview-container" id="previewContainer"></div>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="form-step" id="step-4">
+                    <div class="form-group">
+                        <label for="about">About Property</label>
+                        <textarea id="about" placeholder="Describe the property"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" placeholder="Enter city">
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="form-step" id="step-5">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="">Select category</option>
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="villa">Villa</option>
+                            <option value="land">Land</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="electric">Electric Capacity</label>
+                        <input type="text" id="electric" placeholder="Enter electric capacity (e.g., 2200VA)">
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="form-step" id="step-6">
+                    <div class="form-group">
+                        <label for="landArea">Land Area (m²)</label>
+                        <input type="text" id="landArea" placeholder="Enter land area">
+                    </div>
+                    <div class="form-group">
+                        <label for="buildArea">Build Area (m²)</label>
+                        <input type="text" id="buildArea" placeholder="Enter build area">
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="form-step" id="step-7">
+                    <div class="form-group">
+                        <label for="bedroom">Bedroom</label>
+                        <input type="number" id="bedroom" placeholder="Enter number of bedrooms" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="bathroom">Bathroom</label>
+                        <input type="number" id="bathroom" placeholder="Enter number of bathrooms" min="0">
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" id="cancelModal">Cancel</button>
-                <button class="btn btn-secondary" id="prevModal" onclick="PrevForm()">Prev</button>
-                <button class="btn btn-primary" onclick="NextForm1()">Next</button>
+                <button class="btn btn-secondary" id="prevBtn" onclick="prevSlide()">Prev</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextSlide()">Next</button>
+                <button class="btn btn-primary" id="submitBtn" style="display: none;" onclick="SubmitHouse()">Submit</button>
             </div>
         </div>
     </div>
-    <div class="modal-overlay" id="modalHousesDetail">
+    <div class="modal-overlay" id="modalHouseDetail">
         <div class="modal">
             <div class="modal-decoration top-right"></div>
             <div class="modal-decoration bottom-left"></div>
             <div class="modal-header">
-                <h3>Detail Houses</h3>
-                <button class="modal-close" id="closeModalDetail">
+                <h3>Detail House</h3>
+                <button class="modal-close" id="closeModalHouseDetail">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="form-container">
-                    <form id="DetailForm">
-                        <label for="name">Nama:</label>
-                        <input type="text" id="name" name="name" required>
-                        <label for="name">Gambar:</label>
-                        <img src="" alt="" width="150px" height="150px" id="img-preview-detail">
+                <div class="progress-bar">
+                        <div class="progress-step-detail active" data-step="1">1</div>
+                        <div class="progress-step-detail" data-step="2">2</div>
+                        <div class="progress-step-detail" data-step="3">3</div>
+                        <div class="progress-step-detail" data-step="4">4</div>
+                        <div class="progress-step-detail" data-step="5">5</div>
+                        <div class="progress-step-detail" data-step="6">6</div>
+                        <div class="progress-step-detail" data-step="7">7</div>
+                </div>
+                <!-- step 01 -->
+                <div class="form-step-detail active" id="step-detail-1">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="nameDetail" placeholder="Enter property name">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" id="priceDetail" placeholder="Enter price">
+                    </div>
+                </div>
+                <!-- step 02 -->
+                 <div class="form-detail-detail" id="step-detail-2">
+                    <div class="form-group">
+                        <label for="certificate">Certificate</label>
+                        <select id="certificate">
+                            <option value="">Select certificate type</option>
+                            <option value="shm">SHM (Sertifikat Hak Milik)</option>
+                            <option value="hgb">HGB (Hak Guna Bangunan)</option>
+                            <option value="shgb">SHGB (Sertifikat Hak Guna Bangunan)</option>
+                            <option value="girik">Girik</option>
+                        </select>
+                    </div>
+                   <div class="form-group">
+                        <label>Thumbnail</label>
+                        <label for="thumbnail" class="file-upload">
+                            <p>Click to upload thumbnail</p>
+                            <div class="thumbnail-preview" id="thumbnailPreview">
+                                <p>No thumbnail selected</p>
+                            </div>
+                        </label>
+                        <input type="file" id="thumbnail" accept="image/*">
+                    </div>
+                </div>
+                <div class="form-step-detail" id="step-detail-3">
+                    <div class="form-group">
+                        <label>Photos</label>
+                        <label for="photos" class="file-upload">
+                            <p>Click to upload photos (multiple allowed)</p>
+                        </label>
+                        <input type="file" id="photos" accept="image/*" multiple>
+                        <div class="preview-container" id="photosPreview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Facilities</label>
+                        <div id="facilitiesContainer">
+                            <div class="facility-item">
+                                <select class="facility-select">
+                                    <option value="">Select facility</option>
+                                    <option value="pool">Swimming Pool</option>
+                                    <option value="gym">Gym</option>
+                                    <option value="parking">Parking</option>
+                                    <option value="security">24/7 Security</option>
+                                </select>
+                                <button class="btn-outline add-facility-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="form-step-detail" id="step-detail-4">
+                    <div class="form-group">
+                        <label for="about">About Property</label>
+                        <textarea id="aboutDetail" placeholder="Describe the property"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="cityDetail">City</label>
+                        <input type="text" id="cityDetail" placeholder="Enter city">
+                    </div>
+                </div>
 
-                        <p>
-                            <label for="imageDetail" class="custom-file-upload">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                                    viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 8px;">
-                                    <path
-                                        d="M.5 9.9a.5.5 0 0 0 .5.6H4v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3h3a.5.5 0 0 0 .5-.6L8.354 1.646a.5.5 0 0 0-.708 0L.5 9.9z" />
-                                </svg>
-                                Upload Gambar
-                            </label>
-                            <input type="file" id="imageDetail" name="imageDetail[]" accept="image/*" multiple>
-                        </p>
-                    </form>
-                    <div class="preview-container" id="previewContainerDetail"></div>
+                <!-- Step 5 -->
+                <div class="form-step-detail" id="step-detail-5">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="">Select category</option>
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="villa">Villa</option>
+                            <option value="land">Land</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="electric">Electric Capacity</label>
+                        <input type="text" id="electricDetail" placeholder="Enter electric capacity (e.g., 2200VA)">
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="form-step-detail" id="step-detail-6">
+                    <div class="form-group">
+                        <label for="landArea">Land Area (m²)</label>
+                        <input type="text" id="landAreaDetail" placeholder="Enter land area">
+                    </div>
+                    <div class="form-group">
+                        <label for="buildArea">Build Area (m²)</label>
+                        <input type="text" id="buildAreaDetail" placeholder="Enter build area">
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="form-step-detail" id="step-detail-7">
+                    <div class="form-group">
+                        <label for="bedroom">Bedroom</label>
+                        <input type="text" id="bedroomDetail" placeholder="Enter number of bedrooms" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="bathroom">Bathroom</label>
+                        <input type="text" id="bathroomDetail" placeholder="Enter number of bathrooms" min="0">
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" id="cancelModal">Cancel</button>
-                <button class="btn btn-primary">Create House</button>
+                <button class="btn btn-secondary" id="prevBtnDetail" onclick="prevSlideDetail()">Prev</button>
+                <button class="btn btn-primary" id="nextBtnDetail" onclick="nextSlideDetail()">Next</button>
+                <button class="btn btn-primary" id="submitBtn" style="display: none;" onclick="SubmitHouse()">Submit</button>
             </div>
         </div>
     </div>
+    
 
     <script src="../js/upload-img.js"></script>
     <script src="../js/upload-image-detail.js"></script>
