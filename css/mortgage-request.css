@@ -1,0 +1,27 @@
+.progress-bar-mortgage{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.form-step-mortgage{
+    display: none;
+}
+.active-form-mortgage{
+    display: block;
+}
+.progress-step-mortgage{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-weight: bold;
+    position: relative;
+}
+.active-step-mortgage{
+    background-color: #3f37c9;
+    color: white;
+}

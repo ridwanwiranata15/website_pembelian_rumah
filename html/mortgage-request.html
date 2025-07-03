@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/upload-img.css">
+    <link rel="stylesheet" href="../css/mortgage-request.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-fire"></i> AdminPro</h3>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#" class="menu-item active">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>mortgage requestss</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Categories</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Cities</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house-medical"></i>
+                <span>Facilities</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>House</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>mortgage request</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Mortgage Request</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>mortgage requests Overview</h1>
+            </div>
+            <div class="user-info">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <span class="user-name">John Doe</span>
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+            </div>
+        </div>
+        <div class="recent-mortgage requests">
+            <div class="section-header">
+                <h2 class="section-title">Recent mortgage requests</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>House</th>
+                        <th>Bank</th>
+                        <th>mortgage request</th>
+                        <th>Years</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover-row" onclick="DetailMortgageRquest(1)" data-id-mortgage-request="1">
+                        <td>#ORD-001</td>
+                        <td>John Smith</td>
+                        <td>BCA</td>
+                        <td>12</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modalMortgageRequestDetail">
+          <div class="modal">
+            <div class="modal-decoration top-right"></div>
+            <div class="modal-decoration bottom-left"></div>
+            <div class="modal-header">
+                <h3>Detail mortgage request</h3>
+                <button class="modal-close" id="closeModalDetailMortgageRequest">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="progress-bar-mortgage">
+                        <div class="progress-step-mortgage active-step-mortgage" data-step="1">1</div>
+                        <div class="progress-step-mortgage " data-step="2">2</div>
+                        <div class="progress-step-mortgage" data-step="3">3</div>
+                        <div class="progress-step-mortgage" data-step="4">4</div>
+                </div>
+                <div class="form-container">
+                    <form id="uploadForm">
+                        <div class="form-step-mortgage active-form-mortgage" id="step-mortgage-1">
+                            <label for="name">House</label>
+                            <input type="text" readonly>
+                            <label for="name">Interest %</label>
+                            <input type="text" readonly>
+                            <label>Bank Name</label>
+                            <input type="text" readonly>
+                            <label>Duration</label>
+                            <input type="text" readonly>
+                        </div>
+                        
+                        <div class="form-step-mortgage" id="step-mortgage-2">
+                            <label for="name">Interest Rate</label>
+                            <input type="text" readonly>
+                            <label for="name">House price</label>
+                            <input type="text" readonly>
+                            <label>Down Payment %</label>
+                            <input type="text" readonly>
+                            <label>Down Payment Amount</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="form-step-mortgage" id="step-mortgage-3">
+                            <label for="name">Loan Amount</label>
+                            <input type="text" readonly>
+                            <label for="name">Monthly payment</label>
+                            <input type="text" readonly>
+                            <label>Total Payment Amount</label>
+                            <input type="text" readonly>
+                        </div>
+                        <div class="form-step-mortgage" id="step-mortgage-4">
+                            <label for="name">Custumer</label>
+                            <input type="text" readonly>
+                            <label for="name">Documents</label>
+                            <a href="">Document</a>
+                        </div>
+                        
+                        
+                    </form>
+                    <div class="preview-container" id="previewContainerDetail"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="">
+                    <button class="btn btn-primary mr-1" id="prevBtnDetailMortgage" onclick="prevBtnDetailMortgage()">Prev</button>
+                    <button class="btn btn-primary" id="NextBtnDetailMortgage" onclick="NextBtnDetailMortgage()">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/mortgage-request.js"></script>
+</body>
+
+</html>

@@ -1077,7 +1077,18 @@
                 padding: 10px 15px;
             }
         }
-
+        .justify-between{
+            justify-content: space-between;
+        }
+        .pointer{
+            cursor: pointer;
+        }
+        .form-step{
+            display: none;
+        }
+        .active-step{
+            display: block;
+        }
 
 
 

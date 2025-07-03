@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/upload-img.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-fire"></i> AdminPro</h3>
+        </div>
+        <div class="sidebar-menu">
+            <a href="#" class="menu-item active">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Interestss</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Categories</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Cities</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house-medical"></i>
+                <span>Facilities</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>House</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Interest</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Mortgage Request</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">
+            <div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Interests Overview</h1>
+            </div>
+            <div class="user-info">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <span class="user-name">John Doe</span>
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+            </div>
+        </div>
+        <div class="recent-Interests">
+            <div class="section-header">
+                <h2 class="section-title">Recent Interests</h2>
+                <button class="btn btn-primary" id="openModalInterest">
+                    <i class="fas fa-plus"></i> Add New Interest
+                </button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>House</th>
+                        <th>Bank</th>
+                        <th>Interest</th>
+                        <th>Years</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hover-row" onclick="DetailInterest(1)" data-id-interest="1">
+                        <td>#ORD-001</td>
+                        <td>John Smith</td>
+                        <td>BCA</td>
+                        <td>12</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlayInterest">
+        <div class="modal">
+            <div class="modal-decoration top-right"></div>
+            <div class="modal-decoration bottom-left"></div>
+            <div class="modal-header">
+                <h3>Create New Interest</h3>
+                <button class="modal-close" id="closeModalInterest">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <form id="uploadForm">
+                        <label for="name">House</label>
+                        <select name="" id="">
+                            <option value="">Priya Halus</option>
+                            <option value="">Green Hils</option>
+                            <option value="">Vimala Hils</option>
+                        </select> 
+                        <label for="name">Bank</label>
+                        <select name="" id="">
+                            <option value="">BCA</option>
+                            <option value="">BRI</option>
+                            <option value="">BNI</option>
+                        </select> 
+                        <label>Interes</label>
+                        <input type="text">
+                        <label>Years</label>
+                        <input type="text">
+                        
+                    </form>
+                    <div class="preview-container" id="previewContainer"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelModal">Cancel</button>
+                <button class="btn btn-primary">Create Interest</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modalInterestsDetail">
+          <div class="modal">
+            <div class="modal-decoration top-right"></div>
+            <div class="modal-decoration bottom-left"></div>
+            <div class="modal-header">
+                <h3>Detail Interests</h3>
+                <button class="modal-close" id="closeModalDetailInterest">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <form id="uploadForm">
+                        <label for="name">House</label>
+                        <select name="" id="">
+                            <option value="">Priya Halus</option>
+                            <option value="">Green Hils</option>
+                            <option value="">Vimala Hils</option>
+                        </select> 
+                        <label for="name">Bank</label>
+                        <select name="" id="">
+                            <option value="">BCA</option>
+                            <option value="">BRI</option>
+                            <option value="">BNI</option>
+                        </select> 
+                        <label>Interes</label>
+                        <input type="text">
+                        <label>Years</label>
+                        <input type="text">
+                        
+                    </form>
+                    <div class="preview-container" id="previewContainerDetail"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelModal">Cancel</button>
+                <button class="btn btn-primary">Create Interest</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/interests.js"></script>
+    <script src="../js/upload-img.js"></script>
+    <script src="../js/upload-image-detail.js"></script>
+</body>
+
+</html>
