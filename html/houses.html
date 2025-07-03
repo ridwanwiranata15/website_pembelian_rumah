@@ -282,33 +282,33 @@
             <div class="modal-decoration bottom-left"></div>
             <div class="modal-header">
                 <h3>Detail House</h3>
-                <button class="modal-close" id="closeModalHouseDetail">
+                <button class="modal-close" id="closeModalHouse" onclick="HideModalDetailHouse()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <div class="progress-bar">
-                        <div class="progress-step-detail active" data-step="1">1</div>
-                        <div class="progress-step-detail" data-step="2">2</div>
-                        <div class="progress-step-detail" data-step="3">3</div>
-                        <div class="progress-step-detail" data-step="4">4</div>
-                        <div class="progress-step-detail" data-step="5">5</div>
-                        <div class="progress-step-detail" data-step="6">6</div>
-                        <div class="progress-step-detail" data-step="7">7</div>
+                <div class="progress-bar-detail">
+                        <div class="progress-step active" data-step="1">1</div>
+                        <div class="progress-step" data-step="2">2</div>
+                        <div class="progress-step" data-step="3">3</div>
+                        <div class="progress-step" data-step="4">4</div>
+                        <div class="progress-step" data-step="5">5</div>
+                        <div class="progress-step" data-step="6">6</div>
+                        <div class="progress-step" data-step="7">7</div>
                 </div>
                 <!-- step 01 -->
-                <div class="form-step-detail active" id="step-detail-1">
+                <div class="form-step active step-detail-1 form-step-detail" id="step-1">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" id="nameDetail" placeholder="Enter property name">
+                        <input type="text" id="name" placeholder="Enter property name" class="name ">
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text" id="priceDetail" placeholder="Enter price">
+                        <input type="text" id="price" placeholder="Enter price" class="price">
                     </div>
                 </div>
                 <!-- step 02 -->
-                 <div class="form-detail-detail" id="step-detail-2">
+                 <div class="form-step step-detail-2 form-step-detail" id="step-2">
                     <div class="form-group">
                         <label for="certificate">Certificate</label>
                         <select id="certificate">
@@ -323,21 +323,21 @@
                         <label>Thumbnail</label>
                         <label for="thumbnail" class="file-upload">
                             <p>Click to upload thumbnail</p>
-                            <div class="thumbnail-preview" id="thumbnailPreview">
+                            <div class="thumbnail-preview thumbnailPreviewDetail" id="thumbnailPreview">
                                 <p>No thumbnail selected</p>
                             </div>
                         </label>
                         <input type="file" id="thumbnail" accept="image/*">
                     </div>
                 </div>
-                <div class="form-step-detail" id="step-detail-3">
+                <div class="form-step step-detail-3 form-step-detail" id="step-3">
                     <div class="form-group">
                         <label>Photos</label>
                         <label for="photos" class="file-upload">
                             <p>Click to upload photos (multiple allowed)</p>
                         </label>
                         <input type="file" id="photos" accept="image/*" multiple>
-                        <div class="preview-container" id="photosPreview"></div>
+                        <div class="preview-container photosPreviewDetail" id="photosPreview"></div>
                     </div>
                     <div class="form-group">
                         <label>Facilities</label>
@@ -352,23 +352,24 @@
                                 </select>
                                 <button class="btn-outline add-facility-btn">+</button>
                             </div>
+                            <div class="facilitiesPreviewDetail"></div>
                         </div>
                     </div>
                 </div>
                 <!-- Step 4 -->
-                <div class="form-step-detail" id="step-detail-4">
+                <div class="form-step step-detail-4 form-step-detail" id="step-4">
                     <div class="form-group">
                         <label for="about">About Property</label>
-                        <textarea id="aboutDetail" placeholder="Describe the property"></textarea>
+                        <textarea id="about" placeholder="Describe the property" class="aboutDetail"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="cityDetail">City</label>
-                        <input type="text" id="cityDetail" placeholder="Enter city">
+                        <label for="city">City</label>
+                        <input type="text" id="city" placeholder="Enter city" class="cityDetail">
                     </div>
                 </div>
 
                 <!-- Step 5 -->
-                <div class="form-step-detail" id="step-detail-5">
+                <div class="form-step step-detail-5 form-step-detail" id="step-5">
                     <div class="form-group">
                         <label for="category">Category</label>
                         <select id="category">
@@ -381,37 +382,37 @@
                     </div>
                     <div class="form-group">
                         <label for="electric">Electric Capacity</label>
-                        <input type="text" id="electricDetail" placeholder="Enter electric capacity (e.g., 2200VA)">
+                        <input type="text" id="electric" placeholder="Enter electric capacity (e.g., 2200VA)" class="electricDetail">
                     </div>
                 </div>
 
                 <!-- Step 6 -->
-                <div class="form-step-detail" id="step-detail-6">
+                <div class="form-step step-detail-6 form-step-detail" id="step-6">
                     <div class="form-group">
                         <label for="landArea">Land Area (m²)</label>
-                        <input type="text" id="landAreaDetail" placeholder="Enter land area">
+                        <input type="text" id="landArea" placeholder="Enter land area" class="landAreaDetail">
                     </div>
                     <div class="form-group">
                         <label for="buildArea">Build Area (m²)</label>
-                        <input type="text" id="buildAreaDetail" placeholder="Enter build area">
+                        <input type="text" id="buildArea" placeholder="Enter build area" class="buildAreaDetail">
                     </div>
                 </div>
 
                 <!-- Step 7 -->
-                <div class="form-step-detail" id="step-detail-7">
+                <div class="form-step step-detail-7 form-step-detail" id="step-7">
                     <div class="form-group">
                         <label for="bedroom">Bedroom</label>
-                        <input type="text" id="bedroomDetail" placeholder="Enter number of bedrooms" min="0">
+                        <input type="number" id="bedroom" placeholder="Enter number of bedrooms" min="0" class="bedroomDetail">
                     </div>
                     <div class="form-group">
                         <label for="bathroom">Bathroom</label>
-                        <input type="text" id="bathroomDetail" placeholder="Enter number of bathrooms" min="0">
+                        <input type="number" id="bathroom" placeholder="Enter number of bathrooms" min="0" class="bathroomDetail">
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" id="prevBtnDetail" onclick="prevSlideDetail()">Prev</button>
-                <button class="btn btn-primary" id="nextBtnDetail" onclick="nextSlideDetail()">Next</button>
+                <button class="btn btn-secondary prevBtnDetail" id="prevBtn" onclick="prevSlideDetail()">Prev</button>
+                <button class="btn btn-primary nextBtnDetail" id="nextBtn" onclick="nextSlideDetail()">Next</button>
                 <button class="btn btn-primary" id="submitBtn" style="display: none;" onclick="SubmitHouse()">Submit</button>
             </div>
         </div>

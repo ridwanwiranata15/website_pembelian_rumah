@@ -271,25 +271,10 @@ document.addEventListener('click', function (event) {
 function SubmitHouse(){
     alert("Assalamualaikum")
 }
-let currentStepDetail = 1;
-function updateFormDetail(){
-    const formStepsDetail = document.querySelectorAll(".form-step-detail")
-    const progressStepsDetail = document.querySelectorAll(".progress-step-detail")
 
-    formStepsDetail.forEach(step => step.classList.remove('active'));
-    document.getElementById(`step-detail-${currentStepDetail}`).classList.add('active');
-
-    progressStepsDetail.forEach((step, index) => {
-        step.classList.toggle('active', index === currentStepDetail - 1);
-        step.classList.toggle('completed', index < currentStepDetail - 1);
-    });
-
-    document.getElementById('prevBtnDetail').style.display = currentStepDetail === 1 ? 'none' : 'block';
-    document.getElementById('nextBtnDetail').style.display = currentStepDetail === formStepsDetail.length ? 'none' : 'block';
-
-}
 function DetailHouse(id){
-    const houseData = document.querySelectorAll("tr[data-id-House='"+id+"'] td")
+    document.getElementById("modalHouseDetail").classList.add("active")
+     const houseData = document.querySelectorAll("tr[data-id-House='"+id+"'] td")
 
     const house = {
         name: houseData[1].textContent, 
@@ -314,51 +299,74 @@ function DetailHouse(id){
     document.getElementById("modalHouseDetail").classList.add("active");
 
     // Step 1
-    document.getElementById("nameDetail").value = house.name;
-    document.getElementById("priceDetail").value = house.price;
+    document.querySelector(".name").value = house.name;
+    document.querySelector('.price').value = house.price;
 
     // Step 2
-    
+    document.querySelector(".thumbnailPreviewDetail").innerHTML = `<img src="${house.thumbnail}" style="max-width: 150px;">`;
 
     // Step 3
-    // document.getElementById("photosPreviewDetail").innerHTML = '';
-    // house.photos.forEach(img => {
-    //     const previewImg = document.createElement('img');
-    //     previewImg.src = img.src;
-    //     previewImg.style.maxWidth = '120px';
-    //     previewImg.style.margin = '5px';
-    //     document.getElementById("photosPreviewDetail").appendChild(previewImg);
-    // });
+    document.querySelector(".photosPreviewDetail").innerHTML = '';
+    house.photos.forEach(img => {
+        const previewImg = document.createElement('img');
+        previewImg.src = img.src;
+        previewImg.style.maxWidth = '120px';
+        previewImg.style.margin = '5px';
+        document.querySelector(".photosPreviewDetail").appendChild(previewImg);
+    });
 
-    // const facilitiesHTML = Array.from(house.facilities).map(p => `<p>${p.textContent}</p>`).join('');
-    // document.getElementById("facilitiesPreviewDetail").innerHTML = facilitiesHTML;
+    const facilitiesHTML = Array.from(house.facilities).map(p => `<p>${p.textContent}</p>`).join('');
+    document.querySelector(".facilitiesPreviewDetail").innerHTML = facilitiesHTML;
 
     // Step 4
-    document.getElementById("aboutDetail").value = house.about;
-    document.getElementById("cityDetail").value = house.city;
+    document.querySelector(".aboutDetail").value = house.about;
+    document.querySelector(".cityDetail").value = house.city;
 
-   
-    document.getElementById("electricDetail").value = house.electric;
+    // Step 5
+    
+    document.querySelector(".electricDetail").value = house.electric;
 
     // Step 6
-    document.getElementById("landAreaDetail").value = house.land_area;
-    document.getElementById("buildAreaDetail").value = house.building_area;
+    document.querySelector(".landAreaDetail").value = house.land_area;
+    document.querySelector(".buildAreaDetail").value = house.building_area;
 
     // Step 7
-    document.getElementById("bedroomDetail").value = house.bedroom;
-    document.getElementById("bathroomDetail").value = house.bathroom;
+    document.querySelector(".bedroomDetail").value = house.bedroom;
+    document.querySelector(".bathroomDetail").value = house.bathroom;
 }
 
-document.getElementById("closeModalHouseDetail").addEventListener("click", () => {
-    document.getElementById("modalHouseDetail").classList.remove("active")
+
+
+document.getElementById("closeModalHouse").addEventListener("click",() => {
+    document.getElementById("modalHouseDetail").classList.remove("active");
 })
-
-function nextSlideDetail(){
-       currentStepDetail++;
-       updateFormDetail()
-
+function HideModalDetailHouse(){
+    document.getElementById("modalHouseDetail").classList.remove("active");
+    
 }
-function prevSlideDetail(){
+
+function updateFormDetail() {
+    const formStepsDetail = document.querySelectorAll('.form-step-detail');
+    const progressStepsDetail = document.querySelectorAll('.progress-step-detail');
+
+    formStepsDetail.forEach(step => step.classList.remove('active'));
+    document.querySelector(`.step-detail-${currentStepDetail}`).classList.add('active');
+
+    progressStepsDetail.forEach((step, index) => {
+        step.classList.toggle('active', index === currentStepDetail - 1);
+        step.classList.toggle('completed', index < currentStepDetail - 1);
+    });
+
+    document.querySelector('.prevBtnDetail').style.display = currentStepDetail === 1 ? 'none' : 'block';
+    document.querySelector('.nextBtnDetail').style.display = currentStepDetail === formStepsDetail.length ? 'none' : 'block';
+}
+
+function nextSlideDetail() {
+    currentStepDetail++;
+    updateFormDetail();
+}
+
+function prevSlideDetail() {
     currentStepDetail--;
     updateFormDetail();
 }
